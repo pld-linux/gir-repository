@@ -1,0 +1,12 @@
+diff -Nur gir-repository.orig/gir/Makefile.am gir-repository.gconf2path/gir/Makefile.am
+--- gir-repository.orig/gir/Makefile.am	2008-11-22 23:35:00.000000000 -0700
++++ gir-repository.gconf2path/gir/Makefile.am	2008-11-23 08:08:57.000000000 -0700
+@@ -36,7 +36,7 @@
+ endif
+ 
+ if BUILD_GCONF
+-GCONF_INCLUDEDIR=`pkg-config --variable=includedir gconf-2.0`/gconf/2
++GCONF_INCLUDEDIR=`pkg-config --variable=includedir gconf-2.0`/gconf2
+ GCONF_LIBDIR=`pkg-config --variable=libdir gconf-2.0`
+ 
+ GConf-2.0.gir: $(G_IR_SCANNER)
