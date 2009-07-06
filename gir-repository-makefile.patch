@@ -1,0 +1,12 @@
+--- gir-repository-0.6.3/gir/Makefile.am~	2009-07-06 19:24:31.949253639 +0200
++++ gir-repository-0.6.3/gir/Makefile.am	2009-07-06 19:31:15.353481526 +0200
+@@ -7,9 +7,6 @@
+ COMMON_CUSTOM_LDFLAGS= -avoid-version -rdynamic
+ 
+ AVAHI_GIRSOURCES = AvahiCore-0.6.gir
+-if BUILD_AVAHI
+-CUSTOM_GIRSOURCES += $(AVAHI_GIRSOURCES)
+-endif
+ EXTRA_DIST += $(AVAHI_GIRSOURCES)
+ 
+ MISSIONCONTROL_GIRSOURCES = DBusGLib-1.0.gir \
