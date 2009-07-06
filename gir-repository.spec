@@ -16,8 +16,7 @@ BuildRequires:	avahi-gobject-devel
 BuildRequires:	babl-devel
 BuildRequires:	clutter-gtk-devel
 BuildRequires:	gnome-keyring-devel
-BuildRequires:	gobject-introspection
-BuildRequires:	gobject-introspection-devel
+BuildRequires:	gobject-introspection-devel >= 0.6.3
 BuildRequires:	goocanvas-devel
 BuildRequires:	gssdp-devel
 BuildRequires:	gstreamer-devel
