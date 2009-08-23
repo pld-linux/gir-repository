@@ -1,0 +1,18 @@
+--- gir-repository-0.6.3-o/gir/Makefile.am	2009-08-23 17:11:13.846941757 -0600
++++ gir-repository-0.6.3/gir/Makefile.am	2009-08-23 17:13:46.493590863 -0600
+@@ -524,6 +524,7 @@
+              --output $@ \
+ 	     $(GST_INCLUDEDIR)/gst/gstbin.h \
+ 	     $(GST_INCLUDEDIR)/gst/gstbuffer.h \
++	     $(GST_INCLUDEDIR)/gst/gstbufferlist.h \
+ 	     $(GST_INCLUDEDIR)/gst/gstbus.h \
+ 	     $(GST_INCLUDEDIR)/gst/gstcaps.h \
+ 	     $(GST_INCLUDEDIR)/gst/gstchildproxy.h \
+@@ -566,6 +567,7 @@
+ 	     $(GST_INCLUDEDIR)/gst/gsttaglist.h \
+ 	     $(GST_INCLUDEDIR)/gst/gsttagsetter.h \
+ 	     $(GST_INCLUDEDIR)/gst/gsttask.h \
++	     $(GST_INCLUDEDIR)/gst/gsttaskpool.h \
+ 	     $(GST_INCLUDEDIR)/gst/gsttrace.h \
+ 	     $(GST_INCLUDEDIR)/gst/gsttypefindfactory.h \
+ 	     $(GST_INCLUDEDIR)/gst/gsttypefind.h \

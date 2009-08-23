@@ -8,6 +8,7 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/gir-repository/0.6/%{name}-%{ver
 # Source0-md5:	19ace20592762312932d5b01b3dc289a
 Patch0:		%{name}-gconf2path.patch
 Patch1:		%{name}-makefile.patch
+Patch2:		%{name}-gstreamer-new.patch
 URL:		http://live.gnome.org/GObjectIntrospection
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -48,6 +49,7 @@ Libraries and headers for gir-repository.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__libtoolize}
