@@ -1,11 +1,11 @@
 Summary:	GObject Introspection repository
 Name:		gir-repository
-Version:	0.6.3
+Version:	0.6.4
 Release:	1
 License:	GPL v2
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gir-repository/0.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	19ace20592762312932d5b01b3dc289a
+# Source0-md5:	3eafa942688223ff4272dbf5a3214d5f
 Patch0:		%{name}-gconf2path.patch
 Patch1:		%{name}-makefile.patch
 Patch2:		%{name}-gstreamer-new.patch
@@ -15,9 +15,8 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	avahi-gobject-devel
 BuildRequires:	babl-devel
-BuildRequires:	clutter-gtk-devel
 BuildRequires:	gnome-keyring-devel
-BuildRequires:	gobject-introspection-devel >= 0.6.3
+BuildRequires:	gobject-introspection-devel >= 0.6.4
 BuildRequires:	goocanvas-devel
 BuildRequires:	gssdp-devel
 BuildRequires:	gstreamer-devel
@@ -77,7 +76,6 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc AUTHORS ChangeLog NEWS README
 %{_libdir}/girepository-1.0/*.typelib
-%attr(755,root,root) %{_libdir}/libgirepo-Clutter-custom.so
 %attr(755,root,root) %{_libdir}/libgirepo-DBus-custom.so
 %attr(755,root,root) %{_libdir}/libgirepo-Gdk-custom.so
 %attr(755,root,root) %{_libdir}/libgirepo-Gtk-custom.so
@@ -85,3 +83,6 @@ rm -rf $RPM_BUILD_ROOT
 %files devel
 %defattr(644,root,root,755)
 %{_datadir}/gir-1.0/*.gir
+%{_libdir}/libgirepo-DBus-custom.la
+%{_libdir}/libgirepo-Gdk-custom.la
+%{_libdir}/libgirepo-Gtk-custom.la
