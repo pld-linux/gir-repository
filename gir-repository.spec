@@ -16,6 +16,7 @@ BuildRequires:	automake
 BuildRequires:	avahi-gobject-devel
 BuildRequires:	babl-devel
 BuildRequires:	gnome-keyring-devel
+BuildRequires:	gnome-menus-devel
 BuildRequires:	gobject-introspection-devel >= 0.6.4
 BuildRequires:	goocanvas-devel
 BuildRequires:	gssdp-devel
@@ -27,6 +28,8 @@ BuildRequires:	gupnp-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	libsoup-devel
 BuildRequires:	libtool
+BuildRequires:	libunique-devel
+BuildRequires:	libwnck-devel
 BuildRequires:	poppler-glib-devel
 BuildRequires:	vte-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -65,6 +68,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
+
+rm -rf $RPM_BUILD_ROOT%{_libdir}/girepository-1.0/Pango*.typelib
+rm -rf $RPM_BUILD_ROOT%{_datadir}/gir-1.0/Pango*.gir
 
 %clean
 rm -rf $RPM_BUILD_ROOT
