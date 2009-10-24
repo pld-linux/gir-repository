@@ -1,18 +1,37 @@
---- gir-repository-0.6.3-o/gir/Makefile.am	2009-08-23 17:11:13.846941757 -0600
-+++ gir-repository-0.6.3/gir/Makefile.am	2009-08-23 17:13:46.493590863 -0600
-@@ -524,6 +524,7 @@
-              --output $@ \
- 	     $(GST_INCLUDEDIR)/gst/gstbin.h \
- 	     $(GST_INCLUDEDIR)/gst/gstbuffer.h \
-+	     $(GST_INCLUDEDIR)/gst/gstbufferlist.h \
- 	     $(GST_INCLUDEDIR)/gst/gstbus.h \
- 	     $(GST_INCLUDEDIR)/gst/gstcaps.h \
- 	     $(GST_INCLUDEDIR)/gst/gstchildproxy.h \
-@@ -566,6 +567,7 @@
- 	     $(GST_INCLUDEDIR)/gst/gsttaglist.h \
- 	     $(GST_INCLUDEDIR)/gst/gsttagsetter.h \
- 	     $(GST_INCLUDEDIR)/gst/gsttask.h \
-+	     $(GST_INCLUDEDIR)/gst/gsttaskpool.h \
- 	     $(GST_INCLUDEDIR)/gst/gsttrace.h \
- 	     $(GST_INCLUDEDIR)/gst/gsttypefindfactory.h \
- 	     $(GST_INCLUDEDIR)/gst/gsttypefind.h \
+--- gir-repository-0.6.5/configure.ac.wiget	2009-10-24 21:07:28.000000000 +0200
++++ gir-repository-0.6.5/configure.ac	2009-10-24 21:10:45.000000000 +0200
+@@ -135,32 +135,19 @@ PKG_CHECK_MODULES(CLUTTERCAIRO, clutter-
+ AM_CONDITIONAL(BUILD_CLUTTERCAIRO, $have_clutter_cairo)
+ 
+ dnl gstreamer
+-PKG_CHECK_MODULES(GSTREAMER, gstreamer-0.10 >= 0.10.0, 
+-                  have_gstreamer=true, have_gstreamer=false)
++have_gstreamer=false
+ AM_CONDITIONAL(BUILD_GSTREAMER, $have_gstreamer)
+ 
+ dnl gstbufferlist.h, gsttaskpool.h were added in 0.10.24 (and in
+ dnl prereleases of that)
+ have_gstbufferlist_h=false
+-if $have_gstreamer ; then
+-   save_CPPFLAGS="$CPPFLAGS"; CPPFLAGS="$CPPFLAGS $GSTREAMER_CFLAGS"
+-   AC_CHECK_HEADER(gst/gstbufferlist.h, [have_gstbufferlist_h=true])
+-   CPPFLAGS="$save_CPPFLAGS"
+-fi
+ AM_CONDITIONAL(HAVE_GSTBUFFERLIST_H, $have_gstbufferlist_h)
+ 
+ have_gsttaskpool_h=false
+-if $have_gstreamer ; then
+-   save_CPPFLAGS="$CPPFLAGS"; CPPFLAGS="$CPPFLAGS $GSTREAMER_CFLAGS"
+-   AC_CHECK_HEADER(gst/gsttaskpool.h, [have_gsttaskpool_h=true])
+-   CPPFLAGS="$save_CPPFLAGS"
+-fi
+ AM_CONDITIONAL(HAVE_GSTTASKPOOL_H, $have_gsttaskpool_h)
+ 
+ dnl gstreamer
+-PKG_CHECK_MODULES(GSTREAMER_PLUGINS_BASE, gstreamer-plugins-base-0.10 >= 0.10.0, 
+-                  have_gstreamer_plugins_base=true, 
+-                  have_gstreamer_plugins_base=false)
++have_gstreamer_plugins_base=false
+ AM_CONDITIONAL(BUILD_GSTREAMER_PLUGINS_BASE, $have_gstreamer_plugins_base)
+ 
+ dnl gtksourceview
