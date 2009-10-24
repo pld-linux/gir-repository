@@ -1,0 +1,55 @@
+--- gir-repository-0.6.5/configure.ac.wiget	2009-10-24 20:57:56.000000000 +0200
++++ gir-repository-0.6.5/configure.ac	2009-09-09 21:31:41.000000000 +0200
+@@ -31,12 +31,10 @@ PKG_CHECK_MODULES(ATK, atk >= 1.12.0,
+ AM_CONDITIONAL(BUILD_ATK, $have_atk)
+ 
+ dnl pango
++have_pango=false
+-PKG_CHECK_MODULES(PANGO, pango >= 1.16.0,
+-                  have_pango=true, have_pango=false)
+ AM_CONDITIONAL(BUILD_PANGO, $have_pango)
+ 
++have_pangoxft=false
+-PKG_CHECK_MODULES(PANGOXFT, pangoxft >= 1.16.0,
+-		  have_pangoxft=true, have_pangoxft=false)
+ AM_CONDITIONAL(BUILD_PANGOXFT, $have_pangoxft)
+ 
+ dnl poppler
+--- gir-repository-0.6.5/gir/Makefile.am.wiget	2009-10-24 20:59:35.000000000 +0200
++++ gir-repository-0.6.5/gir/Makefile.am	2009-10-24 21:02:41.000000000 +0200
+@@ -177,7 +177,7 @@ endif
+ #poppler
+ if BUILD_POPPLER
+ POPPLER_INCLUDEDIR=`pkg-config --variable=includedir poppler-glib`/poppler
+-Poppler-0.8.gir: Gdk-2.0.gir Pango-1.0.gir $(INTROSPECTION_SCANNER)
++Poppler-0.8.gir: Gdk-2.0.gir $(INTROSPECTION_SCANNER)
+ 	$(INTROSPECTION_SCANNER) -v --namespace Poppler --nsversion=0.8 \
+ 	    --add-include-path=$(srcdir) --add-include-path=. \
+              --include=GObject-2.0 \
+@@ -263,7 +263,7 @@ XPATH_TESTS += GdkPixbuf-2.0.xpath
+ 
+ lib_LTLIBRARIES += libgirepo-Gdk-custom.la
+ GDK_INCLUDEDIR=`pkg-config --variable=includedir gdk-$(GDK_TARGET)-2.0`/gtk-2.0
+-Gdk-2.0.gir: Pango-1.0.gir GdkPixbuf-2.0.gir libgirepo-Gdk-custom.la $(INTROSPECTION_SCANNER)
++Gdk-2.0.gir: GdkPixbuf-2.0.gir libgirepo-Gdk-custom.la $(INTROSPECTION_SCANNER)
+ 	$(INTROSPECTION_SCANNER) -v --namespace Gdk --nsversion=2.0 \
+ 	    --add-include-path=$(srcdir) --add-include-path=. \
+              --include=Gio-2.0 \
+@@ -288,7 +288,7 @@ BUILT_GIRSOURCES += Gdk-2.0.gir
+ 
+ lib_LTLIBRARIES += libgirepo-Gtk-custom.la
+ GTK_INCLUDEDIR=`pkg-config --variable=includedir gtk+-$(GDK_TARGET)-2.0`/gtk-2.0
+-Gtk-2.0.gir: Pango-1.0.gir Atk-1.0.gir GdkPixbuf-2.0.gir Gdk-2.0.gir libgirepo-Gtk-custom.la $(INTROSPECTION_SCANNER)
++Gtk-2.0.gir: Atk-1.0.gir GdkPixbuf-2.0.gir Gdk-2.0.gir libgirepo-Gtk-custom.la $(INTROSPECTION_SCANNER)
+ 	$(INTROSPECTION_SCANNER) -v --namespace Gtk --nsversion=2.0 \
+ 	    --add-include-path=$(srcdir) --add-include-path=. \
+              --include=Gio-2.0 \
+@@ -426,7 +426,7 @@ ClutterJson-0.8.gir: $(INTROSPECTION_SCA
+              --output $@ \
+              $(CLUTTER_INCLUDEDIR)/clutter-0.8/clutter/json/*.h
+ 
+-Clutter-0.8.gir: libgirepo-Clutter-custom.la ClutterJson-0.8.gir GdkPixbuf-2.0.gir Pango-1.0.gir PangoCairo-1.0.gir $(INTROSPECTION_SCANNER) clutter-0.8.c
++Clutter-0.8.gir: libgirepo-Clutter-custom.la ClutterJson-0.8.gir GdkPixbuf-2.0.gir $(INTROSPECTION_SCANNER) clutter-0.8.c
+ 	$(INTROSPECTION_SCANNER) -v --namespace Clutter --nsversion=0.8 \
+ 	    --add-include-path=$(srcdir) --add-include-path=. \
+              --include=GL-1.0 \
