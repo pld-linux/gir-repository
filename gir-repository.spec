@@ -1,14 +1,15 @@
 Summary:	GObject Introspection repository
 Name:		gir-repository
 Version:	0.6.5
-Release:	2
+Release:	3
 License:	GPL v2
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gir-repository/0.6/%{name}-%{version}.tar.bz2
 # Source0-md5:	f161fa1ae161e81117af6f4bb79bf344
 Patch0:		%{name}-gconf2path.patch
 Patch1:		%{name}-makefile.patch
-Patch2:		%{name}-gstreamer-new.patch
+Patch2:		%{name}-pango.patch
+Patch3:		%{name}-gstreamer-new.patch
 URL:		http://live.gnome.org/GObjectIntrospection
 BuildRequires:	GConf2-devel
 BuildRequires:	autoconf
@@ -20,7 +21,6 @@ BuildRequires:	gnome-menus-devel
 BuildRequires:	gobject-introspection-devel >= 0.6.4
 BuildRequires:	goocanvas-devel
 BuildRequires:	gssdp-devel
-BuildRequires:	gstreamer-devel
 BuildRequires:	gtk+2-devel
 BuildRequires:	gtk-webkit-devel
 BuildRequires:	gtksourceview2-devel
@@ -30,6 +30,7 @@ BuildRequires:	libsoup-devel
 BuildRequires:	libtool
 BuildRequires:	libunique-devel
 BuildRequires:	libwnck-devel
+BuildRequires:	pango-devel >= 1:1.26.0
 BuildRequires:	poppler-glib-devel
 BuildRequires:	vte-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -52,6 +53,7 @@ Libraries and headers for gir-repository.
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
 
 %build
 %{__libtoolize}
@@ -68,9 +70,6 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
-
-rm -rf $RPM_BUILD_ROOT%{_libdir}/girepository-1.0/Pango*.typelib
-rm -rf $RPM_BUILD_ROOT%{_datadir}/gir-1.0/Pango*.gir
 
 %clean
 rm -rf $RPM_BUILD_ROOT
