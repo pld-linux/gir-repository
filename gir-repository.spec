@@ -16,6 +16,7 @@ BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	avahi-gobject-devel
 BuildRequires:	babl-devel
+BuildRequires:	glibc-misc
 BuildRequires:	gnome-keyring-devel
 BuildRequires:	gnome-menus-devel
 BuildRequires:	gobject-introspection-devel >= 0.6.4
@@ -30,7 +31,9 @@ BuildRequires:	libsoup-devel
 BuildRequires:	libtool
 BuildRequires:	libunique-devel
 BuildRequires:	libwnck-devel
+BuildRequires:	openjpeg-devel
 BuildRequires:	pango-devel >= 1:1.26.0
+BuildRequires:	pkgconfig
 BuildRequires:	poppler-glib-devel
 BuildRequires:	vte-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
