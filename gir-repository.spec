@@ -1,7 +1,7 @@
 Summary:	GObject Introspection repository
 Name:		gir-repository
 Version:	0.6.5
-Release:	6
+Release:	7
 License:	GPL v2
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gir-repository/0.6/%{name}-%{version}.tar.bz2
@@ -74,7 +74,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-for file in Unique-1.0 Gdk-2.0 GdkPixbuf-2.0 GMenu-2.0 Gtk-2.0 Atk-1.0 Wnck-1.0; do
+for file in Atk-1.0 Unique-1.0 Gdk-2.0 GdkPixbuf-2.0 GMenu-2.0 Gtk-2.0 \
+	    JSCore-1.0 WebKit-1.0 Wnck-1.0; do
     rm $RPM_BUILD_ROOT%{_libdir}/girepository-1.0/$file.typelib
     rm $RPM_BUILD_ROOT%{_datadir}/gir-1.0/$file.gir
 done
