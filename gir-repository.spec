@@ -1,4 +1,5 @@
 Summary:	GObject Introspection repository
+Summary(pl.UTF-8):	Repozytorium GObject Introspection
 Name:		gir-repository
 Version:	0.6.5
 Release:	7
@@ -11,45 +12,60 @@ Patch1:		%{name}-makefile.patch
 Patch2:		%{name}-pango.patch
 Patch3:		%{name}-gstreamer-new.patch
 URL:		http://live.gnome.org/GObjectIntrospection
-BuildRequires:	GConf2-devel
-BuildRequires:	autoconf
+BuildRequires:	GConf2-devel >= 2.0
+BuildRequires:	atk-devel >= 1:1.12.0
+BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
-BuildRequires:	avahi-gobject-devel
+BuildRequires:	avahi-gobject-devel >= 0.6
 BuildRequires:	babl-devel
+BuildRequires:	clutter-devel >= 0.8
+BuildRequires:	clutter-cairo-devel >= 0.8
+BuildRequires:	clutter-gtk-devel >= 0.8
+BuildRequires:	dbus-glib-devel
 BuildRequires:	glibc-misc
 BuildRequires:	gnome-keyring-devel
 BuildRequires:	gnome-menus-devel
-BuildRequires:	gobject-introspection-devel >= 0.6.4
+BuildRequires:	gobject-introspection-devel >= 0.6.5
 BuildRequires:	goocanvas-devel
 BuildRequires:	gssdp-devel
-BuildRequires:	gtk+2-devel
-BuildRequires:	gtk-webkit-devel
+BuildRequires:	gtk+2-devel >= 2:2.12.0
+BuildRequires:	gtk-webkit-devel >= 1.0
 BuildRequires:	gtksourceview2-devel
 BuildRequires:	gupnp-devel
 BuildRequires:	libnotify-devel
-BuildRequires:	libsoup-devel
+BuildRequires:	libsoup-devel >= 2.4
 BuildRequires:	libtool
-BuildRequires:	libunique-devel
+BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	libwnck-devel
+BuildRequires:	nautilus-devel
 BuildRequires:	openjpeg-devel
 BuildRequires:	pango-devel >= 1:1.26.0
 BuildRequires:	pkgconfig
-BuildRequires:	poppler-glib-devel
+BuildRequires:	poppler-glib-devel >= 0.8
 BuildRequires:	vte-devel
+# gnio ???
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Introspection system for GNOME libraries; see the
 gobject-introspection package.
 
+%description -l pl.UTF-8
+System obserwacji dla bibliotek GNOME - więcej w pakiecie
+gobject-introspection.
+
 %package devel
-Summary:	Libraries and headers for gir-repository
+Summary:	Development files for gir-repository
+Summary(pl.UTF-8):	Pliki programistyczne dla gir-repository
 Group:		Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	gobject-introspection-devel
+Requires:	gobject-introspection-devel >= 0.6.5
 
 %description devel
-Libraries and headers for gir-repository.
+Development files for gir-repository.
+
+%description devel -l pl.UTF-8
+Pliki programistyczne dla gir-repository.
 
 %prep
 %setup -q
@@ -60,7 +76,7 @@ Libraries and headers for gir-repository.
 
 %build
 %{__libtoolize}
-%{__aclocal}
+%{__aclocal} -I m4
 %{__autoconf}
 %{__autoheader}
 %{__automake}
