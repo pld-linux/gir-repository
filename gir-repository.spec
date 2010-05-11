@@ -1,8 +1,13 @@
+#
+# TODO:
+#   - fix building with clutter >= 1.0, note: clutter-cairo
+#     was obsoleted by clutter
+#
 Summary:	GObject Introspection repository
 Summary(pl.UTF-8):	Repozytorium GObject Introspection
 Name:		gir-repository
 Version:	0.6.5
-Release:	7
+Release:	8
 License:	GPL v2
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gir-repository/0.6/%{name}-%{version}.tar.bz2
@@ -18,9 +23,9 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	avahi-gobject-devel >= 0.6
 BuildRequires:	babl-devel
-BuildRequires:	clutter-devel >= 0.8
-BuildRequires:	clutter-cairo-devel >= 0.8
-BuildRequires:	clutter-gtk-devel >= 0.8
+#BuildRequires:	clutter-devel >= 0.8
+#BuildRequires:	clutter-cairo-devel >= 0.8
+#BuildRequires:	clutter-gtk-devel >= 0.8
 BuildRequires:	dbus-glib-devel
 BuildRequires:	glibc-misc
 BuildRequires:	gnome-keyring-devel
