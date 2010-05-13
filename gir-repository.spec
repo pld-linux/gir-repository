@@ -23,12 +23,11 @@ BuildRequires:	autoconf >= 2.59
 BuildRequires:	automake
 BuildRequires:	avahi-gobject-devel >= 0.6
 BuildRequires:	babl-devel
-#BuildRequires:	clutter-devel >= 0.8
 #BuildRequires:	clutter-cairo-devel >= 0.8
+#BuildRequires:	clutter-devel >= 0.8
 #BuildRequires:	clutter-gtk-devel >= 0.8
 BuildRequires:	dbus-glib-devel
 BuildRequires:	glibc-misc
-BuildRequires:	gnome-keyring-devel
 BuildRequires:	gnome-menus-devel
 BuildRequires:	gobject-introspection-devel >= 0.6.5
 BuildRequires:	goocanvas-devel
@@ -37,6 +36,7 @@ BuildRequires:	gtk+2-devel >= 2:2.12.0
 BuildRequires:	gtk-webkit-devel >= 1.0
 BuildRequires:	gtksourceview2-devel
 BuildRequires:	gupnp-devel
+BuildRequires:	libgnome-keyring-devel
 BuildRequires:	libnotify-devel
 BuildRequires:	libsoup-devel >= 2.4
 BuildRequires:	libtool
