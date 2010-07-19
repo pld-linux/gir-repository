@@ -7,7 +7,7 @@ Summary:	GObject Introspection repository
 Summary(pl.UTF-8):	Repozytorium GObject Introspection
 Name:		gir-repository
 Version:	0.6.5
-Release:	9
+Release:	10
 License:	GPL v2
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gir-repository/0.6/%{name}-%{version}.tar.bz2
@@ -78,6 +78,9 @@ Pliki programistyczne dla gir-repository.
 %patch1 -p1
 %patch2 -p1
 %patch3 -p1
+sed -i 's#repository version="1\.0"#repository version="1.1"#' gir/*.gir
+sed -i 's#babl-0\.0#babl-0.1#' gir/Makefile.am
+sed -i 's#Babl-0\.0#Babl-0.1#' gir/Makefile.am
 
 %build
 %{__libtoolize}
