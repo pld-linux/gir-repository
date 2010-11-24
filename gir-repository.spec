@@ -7,7 +7,7 @@ Summary:	GObject Introspection repository
 Summary(pl.UTF-8):	Repozytorium GObject Introspection
 Name:		gir-repository
 Version:	0.6.5
-Release:	10
+Release:	11
 License:	GPL v2
 Group:		Development/Libraries
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/gir-repository/0.6/%{name}-%{version}.tar.bz2
