@@ -74,10 +74,10 @@ Pliki programistyczne dla gir-repository.
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
-%patch2 -p1
-%patch3 -p1
+%patch -P0 -p1
+%patch -P1 -p1
+%patch -P2 -p1
+%patch -P3 -p1
 sed -i 's#repository version="1\.0"#repository version="1.1"#' gir/*.gir
 sed -i 's#babl-0\.0#babl-0.1#' gir/Makefile.am
 sed -i 's#Babl-0\.0#Babl-0.1#' gir/Makefile.am
